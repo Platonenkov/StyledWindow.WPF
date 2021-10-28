@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="StyledWindow.WPF.Components.LanguageEnRu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:components="clr-namespace:StyledWindow.WPF.Components"
+             xmlns:themes="clr-namespace:StyledWindow.WPF.Themes"
+             xmlns:converters="clr-namespace:StyledWindow.WPF.Converters"
+             mc:Ignorable="d">
+
+    <components:LanguagePopUpTitle Visibility="{Binding (themes:StyledWindow.LanguageContent), RelativeSource={RelativeSource TemplatedParent},
+                                                    Converter={Combine First={converters:IsNotNull}, Then={Bool2Visibility Collapsed=True}}}">
+        <components:LanguagePopUpTitle.DataContext>
+            <themes:KnownLanguages>
+                <components:LanguageInfo CultureName="ru-RU" ShortName="Ru"/>
+                <components:LanguageInfo CultureName="en-US" ShortName="En"/>
+            </themes:KnownLanguages>
+        </components:LanguagePopUpTitle.DataContext>
+    </components:LanguagePopUpTitle>
+
+    <!--<materialDesign:PopupBox StaysOpen="False" ToolTip="Language">
+        <materialDesign:PopupBox.ToggleContent>
+            <materialDesign:PackIcon Kind="Language"
+                                     HorizontalAlignment="Center"
+                                     Foreground="{DynamicResource MaterialDesignBody}">
+            </materialDesign:PackIcon>
+        </materialDesign:PopupBox.ToggleContent>
+        <StackPanel>
+            <Button Command="LocalizationManager.ChangeCultureCommand"
+                    CommandParameter="en-US"
+                    ToolTipService.Placement="Left"
+                    ToolTip="En" 
+                    Foreground="{DynamicResource MaterialDesignBody}">
+                <TextBlock Text="En" Height="20" Width="50" TextAlignment="Center" VerticalAlignment="Center"/>
+            </Button>
+            <Button Command="LocalizationManager.ChangeCultureCommand"
+                    CommandParameter="ru-RU" 
+                    ToolTipService.Placement="Left"
+                    ToolTip="Ru" 
+                    Foreground="{DynamicResource MaterialDesignBody}">
+                <TextBlock Text="Ru" Height="20" Width="50" TextAlignment="Center" VerticalAlignment="Center"/>
+            </Button>
+        </StackPanel>
+    </materialDesign:PopupBox>-->
+</UserControl>

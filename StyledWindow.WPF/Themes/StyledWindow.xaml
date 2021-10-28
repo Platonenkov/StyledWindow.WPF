@@ -1,0 +1,537 @@
+﻿<ResourceDictionary  x:Class="StyledWindow.WPF.Themes.StyledWindow" 
+                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:p="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options"
+                     xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+                     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+                     xmlns:themes="clr-namespace:StyledWindow.WPF.Themes"
+                     xmlns:c="clr-namespace:StyledWindow.WPF.Converters"
+                     xmlns:behaviors="clr-namespace:MathCore.WPF.Behaviors;assembly=MathCore.WPF"
+                     xmlns:components="clr-namespace:StyledWindow.WPF.Components"
+                     xmlns:collections="clr-namespace:System.Collections;assembly=System.Runtime"
+                     xmlns:commands="clr-namespace:StyledWindow.WPF.Commands">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/materialdesigntheme.popupbox.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+    <SolidColorBrush x:Key="RedTomatoBorderBrush" Color="#FF6347" p:Freeze="True"/>
+
+    <Style x:Key=".StyledWindowTitleBarButtonStyle" TargetType="{x:Type ButtonBase}">
+        <Setter Property="Focusable" Value="False"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ButtonBase}">
+                    <Grid>
+                        <Border Name="PART_Border" Background="Transparent" 
+                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                BorderBrush="{TemplateBinding BorderBrush}"/>
+                        <ContentPresenter/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="PART_Border" Property="Background" Value="{DynamicResource MaterialDesignBody}"/>
+                            <Setter TargetName="PART_Border" Property="Opacity" Value="0.7"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="PART_Border" Property="Background" Value="{DynamicResource MaterialDesignPaper}"/>
+                            <Setter TargetName="PART_Border" Property="Opacity" Value="1"/>
+                            <Setter Property="Foreground" Value="{DynamicResource MaterialDesignPaper}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key=".StyledWindowTitleToggledButtonStyle" TargetType="{x:Type ButtonBase}">
+        <Setter Property="Focusable" Value="False"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ButtonBase}">
+                    <Grid>
+                        <Border Name="PART_Border" Background="Transparent" 
+                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                BorderBrush="{TemplateBinding BorderBrush}"/>
+                        <ContentPresenter/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="PART_Border" Property="Background" Value="{DynamicResource MaterialDesignBody}"/>
+                            <Setter TargetName="PART_Border" Property="Opacity" Value="0.7"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="PART_Border" Property="Background" Value="{DynamicResource MaterialDesignPaper}"/>
+                            <Setter TargetName="PART_Border" Property="Opacity" Value="1"/>
+                            <Setter Property="Foreground" Value="{DynamicResource MaterialDesignPaper}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="{x:Type materialDesign:PopupBox}" x:Key="PopUpTitled">
+        <Setter Property="Focusable" Value="False"/>
+        <Setter Property="ToggleContent" Value="{StaticResource MaterialDesignPopupBoxToggleContent}" />
+        <Setter Property="materialDesign:RippleAssist.Feedback" Value="{DynamicResource MaterialDesignFlatButtonRipple}" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+        <Setter Property="PopupHorizontalOffset" Value="5"/>
+        <Setter Property="PopupVerticalOffset" Value="5"/>
+        <Setter Property="TextElement.FontWeight" Value="Normal" />
+        <Setter Property="Padding" Value="0 8 0 8" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type materialDesign:PopupBox}">
+                    <ControlTemplate.Resources>
+                        <Style TargetType="Separator" BasedOn="{StaticResource MaterialDesignSeparator}"/>
+                        <Style TargetType="ToggleButton" x:Key="ToggleButtonStyle">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ToggleButton">
+                                        <Grid Height="34">
+                                            <Border Name="PART_Border" Background="Transparent" 
+                                                    BorderThickness="0" 
+                                                    BorderBrush="{TemplateBinding BorderBrush}"/>
+                                            <materialDesign:Ripple Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" Focusable="False"
+                                                                   ClipToBounds="False"
+                                                                   materialDesign:RippleAssist.IsCentered="True"
+                                                                   HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                                                   VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                                   Padding="{TemplateBinding Padding}" 
+                                                                   SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                        </Grid>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter TargetName="PART_Border" Property="Background" Value="{DynamicResource MaterialDesignBody}"/>
+                                                <Setter TargetName="PART_Border" Property="Opacity" Value="0.7"/>
+                                            </Trigger>
+                                            <Trigger Property="IsPressed" Value="True">
+                                                <Setter TargetName="PART_Border" Property="Background" Value="{DynamicResource MaterialDesignPaper}"/>
+                                                <Setter TargetName="PART_Border" Property="Opacity" Value="1"/>
+                                                <Setter Property="Foreground" Value="{DynamicResource MaterialDesignPaper}"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+
+
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ControlTemplate.Resources>
+                    <Grid>
+                        <ToggleButton x:Name="PART_Toggle" Style="{StaticResource ToggleButtonStyle}" IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsPopupOpen, Mode=TwoWay}"
+                                      Content="{TemplateBinding ToggleContent}" ContentTemplate="{TemplateBinding ToggleContentTemplate}"
+                                      Cursor="Hand" TabIndex="{TemplateBinding TabIndex}" VerticalAlignment="Center" IsTabStop="{TemplateBinding IsTabStop}"
+                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        <materialDesign:PopupEx x:Name="PART_Popup" 
+                                     IsOpen="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsPopupOpen, Mode=TwoWay}"
+                                     CustomPopupPlacementCallback="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=PopupPlacementMethod}"
+                                     HorizontalOffset="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=PopupHorizontalOffset}"
+                                     VerticalOffset="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=PopupVerticalOffset}"
+                                     PlacementTarget="{Binding ElementName=PART_Toggle}"
+                                     Placement="Custom"
+                                     PopupAnimation="Fade"
+                                     AllowsTransparency="True">
+                            <materialDesign:Card Content="{TemplateBinding PopupContent}" ContentTemplate="{TemplateBinding PopupContentTemplate}"
+                                      Foreground="{DynamicResource MaterialDesignBody}"
+                                      Padding="{TemplateBinding Padding}"
+                                      RenderOptions.ClearTypeHint="Enabled"
+                                      Margin="5">
+                                <materialDesign:Card.Resources>
+                                    <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignPopupBoxButton}" />
+                                </materialDesign:Card.Resources>
+                            </materialDesign:Card>
+                        </materialDesign:PopupEx>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Opacity" Value="1"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <ControlTemplate x:Key="StyledWindowTemplate" TargetType="{x:Type Window}">
+        <!--<ControlTemplate.Resources>
+            <Geometry x:Key="MinimizeButtonIconGeometry" p:Freeze="True">M0,8 H8 M0,7 H8 M0,6 H8</Geometry>
+            <Geometry x:Key="MaximizeToMaxButtonIconGeometry" p:Freeze="True">M0,0 H8 V8 H0 V0 M0,1 H8 M0,2 H8</Geometry>
+            <Geometry x:Key="MaximizeToMinButtonIconGeometry" p:Freeze="True">M0,3 H5 V8 H0 V3 M0,4 H5 M3,0 H8 V5 H7 M3,1 H8</Geometry>
+            <Geometry x:Key="CloseButtonIconGeometry" p:Freeze="True">M0,0 L8,8 M0,8 L8,0</Geometry>
+        </ControlTemplate.Resources>-->
+
+        <Grid>
+            <Border Name="PART_Border" BorderBrush="{DynamicResource MaterialDesignBody}"
+                    BorderThickness="0.7">
+                <Border.Effect>
+                        <BlurEffect Radius="5"/>
+                </Border.Effect>
+            </Border>
+
+            <Grid x:Name="PART_MainGrid" 
+                  Background="{DynamicResource MaterialDesignPaper}">
+                <DockPanel>
+                    <!-- Заголовок окна -->
+                    <Grid Name="PART_TitleBar" DockPanel.Dock="Top">
+                        <b:Interaction.Behaviors>
+                            <behaviors:WindowTitleBarBehavior/>
+                        </b:Interaction.Behaviors>
+                        <DockPanel Height="34" Background="{DynamicResource MaterialDesignPaper}">
+                            <DockPanel.Resources>
+                                <Style TargetType="{x:Type Button}" BasedOn="{StaticResource .StyledWindowTitleBarButtonStyle}"/>
+                                <Style TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource .StyledWindowTitleBarButtonStyle}"/>
+                                <Style TargetType="{x:Type materialDesign:PopupBox}" BasedOn="{StaticResource PopUpTitled}">
+                                    <Setter Property="ToolTipService.Placement" Value="Bottom"></Setter>
+                                </Style>
+                                <Style TargetType="{x:Type Path}">
+                                    <Setter Property="Stroke" Value="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}"/>
+                                    <Setter Property="StrokeThickness" Value="1"/>
+                                    <Setter Property="Stretch" Value="None"/>
+                                    <Setter Property="RenderOptions.EdgeMode" Value="Aliased"/>
+                                    <Setter Property="Margin" Value="10"/>
+                                </Style>
+                            </DockPanel.Resources>
+                            <Image Name="PART_Icon" Margin="8,5,4,5" Source="{TemplateBinding Icon}">
+                                <b:Interaction.Behaviors>
+                                    <behaviors:WindowSystemIconBehavior/>
+                                </b:Interaction.Behaviors>
+                            </Image>
+
+                            <StackPanel Orientation="Horizontal" DockPanel.Dock="Right" >
+                                <StackPanel.Resources>
+                                    <Style TargetType="materialDesign:PackIcon">
+                                        <Setter Property="Height" Value="20"/>
+                                        <Setter Property="Width" Value="50"/>
+                                        <Setter Property="VerticalAlignment" Value="Center"/>
+                                        <Setter Property="CacheMode" Value="BitmapCache"/>
+                                    </Style>
+                                </StackPanel.Resources>
+                                <!--<components:ThemeButton  Margin="5 0">
+                                    <components:ThemeButton.Style>
+                                        <Style TargetType="{x:Type components:ThemeButton}">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding (themes:StyledWindow.ThemeButtonVisible), RelativeSource={RelativeSource TemplatedParent}}" Value="False">
+                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </components:ThemeButton.Style>
+                                </components:ThemeButton>-->
+                                <ToggleButton x:Name="_themeBtn" Margin="10 0"
+                                              Loaded="_themeBtn_OnLoaded"
+                                              Command="{commands:ChangeThemeCommand}"
+                                              CommandParameter="{Binding IsChecked, ElementName=_themeBtn}"
+                                              ToolTip="{Binding IsChecked, ElementName=_themeBtn, Converter={c:BoolToStringSelectValueConverter True=Light, False=Dark}}">
+                                    <ToggleButton.Style>
+                                        <Style TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource MaterialDesignSwitchToggleButton}">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding (themes:StyledWindow.ThemeButtonVisible), RelativeSource={RelativeSource TemplatedParent}}" Value="False">
+                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </ToggleButton.Style>
+                                    <ToggleButton.Resources>
+                                        <Style TargetType="materialDesign:PackIcon">
+                                            <Setter Property="VerticalAlignment" Value="Stretch"/>
+                                        </Style>
+                                    </ToggleButton.Resources>
+
+                                    <materialDesign:PackIcon Kind="WhiteBalanceSunny"/>
+                                    <materialDesign:ToggleButtonAssist.OnContent>
+                                        <materialDesign:PackIcon Kind="MoonAndStars"/>
+                                    </materialDesign:ToggleButtonAssist.OnContent>
+                                </ToggleButton>
+
+                                <materialDesign:PopupBox StaysOpen="False" ToolTip="Language"
+                                                         DataContext="{Binding (themes:StyledWindow.LanguageContent), RelativeSource={RelativeSource TemplatedParent}}">
+                                    <materialDesign:PopupBox.ToggleContent>
+                                        <materialDesign:PackIcon Kind="Language"
+                                                                 HorizontalAlignment="Center"
+                                                                 Foreground="{DynamicResource MaterialDesignBody}">
+                                        </materialDesign:PackIcon>
+                                    </materialDesign:PopupBox.ToggleContent>
+                                    <ItemsControl ItemsSource="{Binding}">
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <StackPanel/>
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate DataType="{x:Type components:LanguageInfo}">
+                                                <Button Command="LocalizationManager.ChangeCultureCommand"
+                                                        CommandParameter="{Binding CultureName}" 
+                                                        ToolTipService.Placement="Left"
+                                                        ToolTip="{Binding ShortName}" 
+                                                        Foreground="{DynamicResource MaterialDesignBody}">
+                                                    <TextBlock Text="{Binding ShortName}" Height="20" Width="50" TextAlignment="Center" VerticalAlignment="Center"/>
+                                                </Button>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                    <materialDesign:PopupBox.Style>
+                                        <Style TargetType="{x:Type materialDesign:PopupBox}" BasedOn="{StaticResource PopUpTitled}">
+                                            <Style.Triggers>
+                                                <MultiDataTrigger>
+                                                    <MultiDataTrigger.Conditions>
+                                                        <Condition Binding="{Binding (themes:StyledWindow.LanguageContent), RelativeSource={RelativeSource TemplatedParent}, Converter={c:Any}}" Value="true"/>
+                                                        <Condition Binding="{Binding (themes:StyledWindow.LanguageButtonVisible), RelativeSource={RelativeSource TemplatedParent}}" Value="true"/>
+                                                    </MultiDataTrigger.Conditions>
+                                                    <Setter Property="Visibility" Value="Visible"></Setter>
+                                                </MultiDataTrigger>
+                                                <DataTrigger Binding="{Binding (themes:StyledWindow.LanguageContent), RelativeSource={RelativeSource TemplatedParent}, Converter={c:Any}}" Value="false">
+                                                    <Setter Property="Visibility" Value="Collapsed"></Setter>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding (themes:StyledWindow.LanguageButtonVisible), RelativeSource={RelativeSource TemplatedParent}}" Value="false">
+                                                    <Setter Property="Visibility" Value="Collapsed"></Setter>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </materialDesign:PopupBox.Style>
+                                </materialDesign:PopupBox>
+
+                                <!--<components:LanguagePopUpTitle
+                                    Visibility="{Binding (themes:StyledWindow.LanguageContent), RelativeSource={RelativeSource TemplatedParent},
+                                                    Converter={Combine First={c:IsNotNull}, Then={Bool2Visibility Collapsed=True}}}"
+                                                               DataContext="{Binding (themes:StyledWindow.LanguageContent), RelativeSource={RelativeSource TemplatedParent}}"/>-->
+                                <ToggleButton x:Name="TopMostSelector" 
+                                              IsChecked="{Binding Topmost, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                                              ToolTip="Topmost"
+                                >
+                                    <ToggleButton.Style>
+                                        <Style TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource .StyledWindowTitleToggledButtonStyle}">
+                                            <Setter Property="Background" Value="{DynamicResource MaterialDesignPaper}"/>
+                                            <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding (themes:StyledWindow.TopmostButtonVisible), RelativeSource={RelativeSource TemplatedParent}}" Value="False">
+                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                </DataTrigger>
+                                                <Trigger Property="IsChecked" Value="True">
+                                                    <Setter Property="Content">
+                                                        <Setter.Value>
+                                                            <materialDesign:PackIcon Kind="Pin" />
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Trigger>
+                                                <Trigger Property="IsChecked" Value="False">
+                                                    <Setter Property="Content">
+                                                        <Setter.Value>
+                                                            <materialDesign:PackIcon 
+                                                                Kind="Pin" RenderTransformOrigin=".5,.5">
+                                                                <materialDesign:PackIcon.RenderTransform>
+                                                                    <RotateTransform Angle="45"  />
+                                                                </materialDesign:PackIcon.RenderTransform>
+                                                            </materialDesign:PackIcon>
+
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </ToggleButton.Style>
+                                </ToggleButton>
+                                <Button Command="{MinimizeWindow}"
+                                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
+                                        Foreground="{DynamicResource MaterialDesignBody}">
+                                    <materialDesign:PackIcon Kind="WindowMinimize" CacheMode="BitmapCache" />
+                                </Button>
+                                <Button Name="MaximazeButton" 
+                                        Command="{WindowStateChange}"
+                                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
+                                        Foreground="{DynamicResource MaterialDesignBody}">
+                                    <materialDesign:PackIcon x:Name="PART_MaximizeButtonPath" 
+                                                             Kind="WindowMaximize" CacheMode="BitmapCache" RenderTransformOrigin=".5,.5" 
+                                                             materialDesign:ShadowAssist.Darken="True"/>
+                                </Button>
+                                <Button Command="{CloseWindow}"  
+                                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
+                                        Foreground="{DynamicResource MaterialDesignBody}">
+                                    <materialDesign:PackIcon Kind="WindowClose" CacheMode="BitmapCache"/>
+                                </Button>
+                            </StackPanel>
+                            <ContentControl DockPanel.Dock="Right" Margin="10,0"
+                                            Content="{Binding (themes:StyledWindow.HeaderContent), RelativeSource={RelativeSource TemplatedParent}}"/>
+                            <TextBlock Name="PART_Title" 
+                                   Text="{Binding Title, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay, FallbackValue=[Window title]}"
+                                   FontSize="12"
+                                   FontFamily="Segoe UI"
+                                   Margin="4,0,0,0"
+                                   Opacity=".66"
+                                   VerticalAlignment="Center"
+                                   Foreground="{DynamicResource MaterialDesignBody}"/>
+                        </DockPanel>
+
+                    </Grid>
+                    <AdornerDecorator>
+                        <ContentPresenter/>
+                    </AdornerDecorator>
+                </DockPanel>
+
+                <Grid x:Name="PART_ResizeElements">
+                    <Grid.Resources>
+                        <Style TargetType="{x:Type Line}">
+                            <Setter Property="Stroke" Value="Transparent"/>
+                            <Setter Property="StrokeThickness" Value="3"/>
+                            <Setter Property="X1" Value="1"/>
+                            <Setter Property="X2" Value="1"/>
+                            <Setter Property="Y1" Value="1"/>
+                            <Setter Property="Y2" Value="1"/>
+                            <Setter Property="CacheMode">
+                                <Setter.Value>
+                                    <BitmapCache/>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <MultiTrigger>
+                                    <MultiTrigger.Conditions>
+                                        <Condition Property="VerticalAlignment" Value="Top"/>
+                                        <Condition Property="HorizontalAlignment" Value="Stretch"/>
+                                    </MultiTrigger.Conditions>
+                                    <Setter Property="X2" Value="{Binding ActualWidth, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                    <Setter Property="Cursor" Value="SizeNS"/>
+                                </MultiTrigger>
+                                <MultiTrigger>
+                                    <MultiTrigger.Conditions>
+                                        <Condition Property="VerticalAlignment" Value="Bottom"/>
+                                        <Condition Property="HorizontalAlignment" Value="Stretch"/>
+                                    </MultiTrigger.Conditions>
+                                    <Setter Property="X2" Value="{Binding ActualWidth, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                    <Setter Property="Cursor" Value="SizeNS"/>
+                                </MultiTrigger>
+                                <MultiTrigger>
+                                    <MultiTrigger.Conditions>
+                                        <Condition Property="VerticalAlignment" Value="Stretch"/>
+                                        <Condition Property="HorizontalAlignment" Value="Left"/>
+                                    </MultiTrigger.Conditions>
+                                    <Setter Property="Y2" Value="{Binding ActualHeight, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                    <Setter Property="Cursor" Value="SizeWE"/>
+                                </MultiTrigger>
+                                <MultiTrigger>
+                                    <MultiTrigger.Conditions>
+                                        <Condition Property="VerticalAlignment" Value="Stretch"/>
+                                        <Condition Property="HorizontalAlignment" Value="Right"/>
+                                    </MultiTrigger.Conditions>
+                                    <Setter Property="Y2" Value="{Binding ActualHeight, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                    <Setter Property="Cursor" Value="SizeWE"/>
+                                </MultiTrigger>
+                            </Style.Triggers>
+                        </Style>
+
+                        <Style TargetType="{x:Type Rectangle}">
+                            <Setter Property="Width" Value="5"/>
+                            <Setter Property="Height" Value="5"/>
+                            <Setter Property="Fill" Value="Transparent"/>
+                            <Setter Property="CacheMode">
+                                <Setter.Value>
+                                    <BitmapCache/>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <MultiTrigger>
+                                    <MultiTrigger.Conditions>
+                                        <Condition Property="VerticalAlignment" Value="Top"/>
+                                        <Condition Property="HorizontalAlignment" Value="Left"/>
+                                    </MultiTrigger.Conditions>
+                                    <Setter Property="Cursor" Value="SizeNWSE"/>
+                                </MultiTrigger>
+                                <MultiTrigger>
+                                    <MultiTrigger.Conditions>
+                                        <Condition Property="VerticalAlignment" Value="Top"/>
+                                        <Condition Property="HorizontalAlignment" Value="Right"/>
+                                    </MultiTrigger.Conditions>
+                                    <Setter Property="Cursor" Value="SizeNESW"/>
+                                </MultiTrigger>
+                                <MultiTrigger>
+                                    <MultiTrigger.Conditions>
+                                        <Condition Property="VerticalAlignment" Value="Bottom"/>
+                                        <Condition Property="HorizontalAlignment" Value="Right"/>
+                                    </MultiTrigger.Conditions>
+                                    <Setter Property="Cursor" Value="SizeNWSE"/>
+                                </MultiTrigger>
+                                <MultiTrigger>
+                                    <MultiTrigger.Conditions>
+                                        <Condition Property="VerticalAlignment" Value="Bottom"/>
+                                        <Condition Property="HorizontalAlignment" Value="Left"/>
+                                    </MultiTrigger.Conditions>
+                                    <Setter Property="Cursor" Value="SizeNESW"/>
+                                </MultiTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Grid.Resources>
+                    <b:Interaction.Behaviors>
+                        <behaviors:ResizeWindowPanel/>
+                    </b:Interaction.Behaviors>
+
+                    <Line VerticalAlignment="Top"/>
+                    <Line VerticalAlignment="Bottom"/>
+                    <Line HorizontalAlignment="Left"/>
+                    <Line HorizontalAlignment="Right"/>
+
+                    <Rectangle VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                    <Rectangle VerticalAlignment="Top" HorizontalAlignment="Right"/>
+                    <Rectangle VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+                    <Rectangle VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+                </Grid>
+            </Grid>
+        </Grid>
+
+        <ControlTemplate.Triggers>
+            <Trigger Property="WindowState" Value="Normal">
+                <Setter TargetName="PART_MainGrid" Property="Margin" Value="1"/>
+                <Setter TargetName="PART_Border" Property="BorderThickness" Value=".3"/>
+                <Setter TargetName="PART_Border" Property="Effect">
+                    <Setter.Value>
+                        <BlurEffect Radius="2"/>
+                    </Setter.Value>
+                </Setter>
+            </Trigger> 
+            <Trigger Property="WindowState" Value="Maximized">
+                <Setter TargetName="PART_MaximizeButtonPath" Property="Kind" Value="WindowRestore"/>
+                <Setter TargetName="PART_MainGrid" Property="Margin" Value="7"/>
+                <Setter TargetName="PART_Border" Property="Margin" Value="7"/>
+                <Setter TargetName="PART_Border" Property="BorderThickness" Value="7"/>
+                <Setter TargetName="PART_ResizeElements" Property="Visibility" Value="Collapsed"/>
+                <Setter TargetName="PART_ResizeElements" Property="IsEnabled" Value="False"/>
+            </Trigger>
+            <Trigger Property="ResizeMode" Value="NoResize">
+                <Setter TargetName="PART_ResizeElements" Property="IsEnabled" Value="False"/>
+                <Setter TargetName="PART_ResizeElements" Property="Visibility" Value="Collapsed"/>
+                <Setter TargetName="MaximazeButton" Property="Visibility" Value="Collapsed"/>
+            </Trigger>
+            <Trigger Property="IsActive" Value="False">
+                <Setter TargetName="PART_TitleBar" Property="Opacity" Value="0.5"/>
+                <Setter TargetName="PART_Border" Property="BorderBrush" Value="{StaticResource RedTomatoBorderBrush}"/>
+                <Setter TargetName="PART_Border" Property="BorderThickness" Value=".3"/>
+                <Setter TargetName="PART_Border" Property="Effect">
+                    <Setter.Value>
+                        <BlurEffect Radius="2"/>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <Style x:Key="StyledWindow" TargetType="{x:Type Window}" BasedOn="{StaticResource MaterialDesignWindow}">
+        <Setter Property="themes:StyledWindow.HeaderContent" Value=""/>
+        <Setter Property="themes:StyledWindow.LanguageContent">
+            <Setter.Value>
+                <themes:KnownLanguages/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="themes:StyledWindow.TopmostButtonVisible" Value="True"/>
+        <Setter Property="themes:StyledWindow.LanguageButtonVisible" Value="True"/>
+        <Setter Property="themes:StyledWindow.ThemeButtonVisible" Value="True"/>
+        <Setter Property="MinWidth" Value="300"/>
+        <Setter Property="MinHeight" Value="200"/>
+        <Setter Property="WindowStyle" Value="None"/>
+        <Setter Property="AllowsTransparency" Value="True"/>
+        <!--<Setter Property="BorderThickness" Value="1"/>-->
+        <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}"/>
+        <Setter Property="Background" Value="{DynamicResource MaterialDesignPaper}"/>
+        <Setter Property="ResizeMode" Value="CanResizeWithGrip"/>
+        <Setter Property="Template" Value="{StaticResource StyledWindowTemplate}"/>
+    </Style>
+
+</ResourceDictionary>

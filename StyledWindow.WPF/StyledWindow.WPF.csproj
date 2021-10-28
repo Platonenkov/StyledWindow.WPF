@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Localization.WPF" Version="1.0.0" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.2.1" />
+    <PackageReference Include="MathCore.WPF" Version="0.0.27.1" />
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.37" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Components\LanguageEnRu - Копировать.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>LanguageEnRu.xaml.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>
