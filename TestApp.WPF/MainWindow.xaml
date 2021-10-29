@@ -11,7 +11,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
         Style="{StaticResource StyledWindow}"
-        themes:StyledWindow.LanguageButtonVisible="True">
+        Icon="Resources/icon.png">
     <!--restart project after changing attached parameters-->
 
     <themes:StyledWindow.LanguageContent>

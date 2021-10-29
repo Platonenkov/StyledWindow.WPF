@@ -11,9 +11,6 @@ using TestApp.WPF.Properties;
 
 namespace TestApp.WPF
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
     public partial class App
     {
         public App()
@@ -22,15 +19,18 @@ namespace TestApp.WPF
         }
         protected override async void OnStartup(StartupEventArgs e)
         {
-            var load_com = new LoadThemeCommand();
-            await load_com.Execute(null);
+            await ThemeEx.LoadThemeAsync(null);
+            //var load_com = new LoadThemeCommand();
+            //load_com.Execute(null);
             base.OnStartup(e);
         }
 
-        protected override void OnExit(ExitEventArgs e)
+        protected override async void OnExit(ExitEventArgs e)
         {
-            var save_com = new SaveThemeCommand();
-            save_com.Execute(null);
+            await ThemeEx.SaveThemeAsync(null).ConfigureAwait(false);
+
+            //var save_com = new SaveThemeCommand();
+            //save_com.Execute(null);
 
             base.OnExit(e);
         }

@@ -23,7 +23,10 @@ namespace StyledWindow.WPF.Components.Themes
 
             public ThemeSettingsViewModel()
             {
-
+                var paletteHelper = new PaletteHelper();
+                var theme = paletteHelper.GetTheme();
+                var base_theme = theme.GetBaseTheme();
+                _isDarkTheme = base_theme is BaseTheme.Dark;
             }
 
             private bool _isDarkTheme;
