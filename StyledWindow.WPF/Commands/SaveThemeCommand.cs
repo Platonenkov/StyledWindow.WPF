@@ -8,40 +8,19 @@ using MathCore.WPF.Commands;
 
 namespace StyledWindow.WPF.Commands
 {
+    /// <summary> Команда сохранить тему </summary>
     public class SaveThemeCommand : Command
     {
         #region Overrides of Command
 
-        public override async void Execute(object? parameter)
+        public override async void Execute(object parameter)
         {
-            var theme_file = "ThemeSettings.json";
-            if (parameter is string { Length: >0 } file_name)
-                theme_file = file_name;
-
-            var paletteHelper = new PaletteHelper();
-            var theme = paletteHelper.GetTheme();
-            try
-            {
-                var file = new FileInfo(theme_file);
-                if (file.Exists && file.IsLocked())
-                {
-                    var time_out_count = 0;
-                    while (file.IsLocked() && time_out_count < 100)
-                    {
-                        await Task.Delay(300).ConfigureAwait(false);
-                        time_out_count++;
-                    }
-                }
-
-                await using var json_file = File.Create(theme_file);
-                await JsonSerializer.SerializeAsync(json_file, theme).ConfigureAwait(false);
-            }
-            catch (Exception)
-            { }
+            await ThemeEx.SaveThemeAsync(parameter is string { } file_path ? file_path : null);
         }
 
         #endregion
     }
+
     public static partial class ThemeEx
     {
         public static async Task SaveThemeAsync(string filePath)
@@ -54,7 +33,7 @@ namespace StyledWindow.WPF.Commands
             var theme = paletteHelper.GetTheme();
             try
             {
-                var file = new FileInfo(theme_file);
+                var file = new FileInfo(theme_file!);
                 if (file.Exists && file.IsLocked())
                 {
                     var time_out_count = 0;
@@ -65,7 +44,7 @@ namespace StyledWindow.WPF.Commands
                     }
                 }
 
-                await using var json_file = File.Create(theme_file);
+                using var json_file = File.Create(theme_file!);
                 await JsonSerializer.SerializeAsync(json_file, theme).ConfigureAwait(false);
             }
             catch (Exception)

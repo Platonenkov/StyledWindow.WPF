@@ -1,13 +1,16 @@
 ﻿using MaterialDesignThemes.Wpf;
+using MathCore.Annotations;
 using MathCore.WPF.Commands;
 
 namespace StyledWindow.WPF.Commands
 {
+    /// <summary> Команда смены темы светлая-тёмная </summary>
     public class ChangeThemeCommand : Command
     {
         #region Overrides of Command
 
-        public override void Execute(object? parameter)
+        /// <inheritdoc />
+        public override void Execute(object parameter)
         {
             if (parameter is not bool isDarkTheme) return;
             var paletteHelper = new PaletteHelper();
