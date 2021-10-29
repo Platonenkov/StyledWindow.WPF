@@ -1,11 +1,14 @@
-# StyledWindow.WPF
+# StyledWindow.WPF 
+Библиотека с настроенным стилем окна для Windows WPF приложения.
+
+`Install-Package StyledWindow.WPF -Version 1.0.0.0`
 
 ![Styled](https://github.com/Platonenkov/StyledWindow.WPF/blob/master/Resources/Header.png)
   <p >
 <img src="https://github.com/Platonenkov/StyledWindow.WPF/blob/master/Resources/WIndowDark.png" alt="WIndowDark" width="400"/>
 <img src="https://github.com/Platonenkov/StyledWindow.WPF/blob/master/Resources/WindowLight.png" alt="WindowLight" width="400"/>
 </p>
-Библиотека с настроенным стилем окна для Windows WPF приложения.
+
 
 ### Что есть на титульном баре
 
