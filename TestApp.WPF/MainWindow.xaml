@@ -3,15 +3,17 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:TestApp.WPF"
         xmlns:themes="clr-namespace:StyledWindow.WPF.Themes;assembly=StyledWindow.WPF"
         xmlns:components="clr-namespace:StyledWindow.WPF.Components;assembly=StyledWindow.WPF"
-        xmlns:col="clr-namespace:System.Collections.Generic;assembly=System"
-        xmlns:generic="clr-namespace:System.Collections.Generic;assembly=System.Collections"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:themes1="clr-namespace:StyledWindow.WPF.Components.Themes;assembly=StyledWindow.WPF"
+        xmlns:wpf="clr-namespace:TestApp.WPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
-        Style="{StaticResource StyledWindow}">
+        Style="{StaticResource StyledWindow}"
+        Icon="Resources/icon.png">
+    <!--restart project after changing attached parameters-->
+
     <themes:StyledWindow.LanguageContent>
         <themes:KnownLanguages>
             <components:LanguageInfo CultureName="ru-RU" ShortName="Ru"/>
@@ -19,9 +21,33 @@
         </themes:KnownLanguages>
     </themes:StyledWindow.LanguageContent>
     <themes:StyledWindow.HeaderContent>
-        <TextBlock Text="Header test content" VerticalAlignment="Center"></TextBlock>
+        <TextBlock Text="Header test content" VerticalAlignment="Center" />
     </themes:StyledWindow.HeaderContent>
-    <Grid>
+    <StackPanel>
+        <Button Content="Button Sample" Margin="5" HorizontalAlignment="Center"/>
+        <ToggleButton Content="{materialDesign:PackIcon Smiley}" Margin="5"
+                      Background="{DynamicResource SecondaryHueMidBrush}"
+
+        />
+        <TextBox Text="Sample TextBox" Margin="5" 
+                 materialDesign:TextFieldAssist.HasClearButton="True"
+        />
+        <TextBox Text="Sample TextBox" Margin="5" Style="{StaticResource MaterialDesignFilledTextBox}" 
+        />
+        <TextBox Text="Sample TextBox" Margin="5" Style="{StaticResource MaterialDesignFilledTextBox}" 
+                 materialDesign:TextFieldAssist.HasClearButton="True"
+
+                 materialDesign:HintAssist.Hint="Description"/>
+        <ComboBox Style="{StaticResource MaterialDesignFilledComboBox}" Margin="5"
+                  IsEditable="True"
+                  materialDesign:TextFieldAssist.HasClearButton="True"
+                  materialDesign:HintAssist.HintOpacity=".26"
+
+                  ItemsSource="{wpf:EnumDescriptions {x:Type themes1:ColorScheme}}"
+                  DisplayMemberPath="Value" 
+                  SelectedValuePath="Key" 
+                  />
+        
         <TextBlock Text="{Loc Hello_world}" VerticalAlignment="Center" TextAlignment="Center"/>
-    </Grid>
+    </StackPanel>
 </Window>

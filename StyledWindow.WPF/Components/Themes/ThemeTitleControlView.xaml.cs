@@ -1,4 +1,7 @@
-﻿using System.Text;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -10,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace TestApp.WPF
+namespace StyledWindow.WPF.Components.Themes
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Логика взаимодействия для ThemeTitleControlView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ThemeTitleControlView : UserControl
     {
-        public MainWindow()
+        public ThemeTitleControlView()
         {
             InitializeComponent();
         }
