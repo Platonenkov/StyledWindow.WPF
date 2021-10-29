@@ -1,5 +1,10 @@
 # StyledWindow.WPF
 
+![Styled](https://github.com/Platonenkov/StyledWindow.WPF/blob/master/Resources/Header.png)
+  <p >
+<img src="https://github.com/Platonenkov/StyledWindow.WPF/blob/master/Resources/WIndowDark.png" alt="WIndowDark" width="400"/>
+<img src="https://github.com/Platonenkov/StyledWindow.WPF/blob/master/Resources/WindowLight.png" alt="WindowLight" width="400"/>
+</p>
 Библиотека с настроенным стилем окна для Windows WPF приложения.
 
 ### Что есть на титульном баре
@@ -11,6 +16,7 @@
 * Любой контент какой хотите отразить в Title
 * Стантартное место под иконку
 
+![Styled](https://github.com/Platonenkov/StyledWindow.WPF/blob/master/Resources/Styled.gif)
 ### Как настроить
 
 #### 1. Настраиваем App.xaml
@@ -64,6 +70,9 @@
     </themes:StyledWindow.LanguageContent>
 ...
 ```
+
+![Styled](https://github.com/Platonenkov/StyledWindow.WPF/blob/master/Resources/LanguageContent.png)
+
 #### Подробнее про работу с локализацией и настройку [Localization.WPF](https://github.com/Platonenkov/Localization.WPF)
 
 ### Любой контент который нужно пометить в шапке
@@ -80,3 +89,5 @@
 ### Для тестирования есть [тестовый проект](https://github.com/Platonenkov/StyledWindow.WPF)
 
 ### Подробнее про использование [темы MaterialDesignInXamlToolkit](https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit)
+
+![Styled](https://github.com/Platonenkov/StyledWindow.WPF/blob/master/Resources/ThemeContent.png)
