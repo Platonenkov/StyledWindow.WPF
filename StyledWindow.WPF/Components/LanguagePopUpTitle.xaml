@@ -6,8 +6,8 @@
              xmlns:local="clr-namespace:StyledWindow.WPF.Components"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d"
-             >
-    <materialDesign:PopupBox StaysOpen="False" ToolTip="Language" DataContext="{Binding}">
+             x:Name="_LangControl">
+    <materialDesign:PopupBox StaysOpen="False" ToolTip="Language" DataContext="{Binding DataContext, ElementName=_LangControl}">
         <materialDesign:PopupBox.ToggleContent>
             <materialDesign:PackIcon Kind="Language"
                                      HorizontalAlignment="Center"

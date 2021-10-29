@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using Localization.WPF;
+using StyledWindow.WPF.Commands;
 using TestApp.WPF.Properties;
 
 namespace TestApp.WPF
@@ -13,11 +14,25 @@ namespace TestApp.WPF
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    public partial class App : Application
+    public partial class App
     {
         public App()
         {
             SetCulture();
+        }
+        protected override async void OnStartup(StartupEventArgs e)
+        {
+            var load_com = new LoadThemeCommand();
+            await load_com.Execute(null);
+            base.OnStartup(e);
+        }
+
+        protected override void OnExit(ExitEventArgs e)
+        {
+            var save_com = new SaveThemeCommand();
+            save_com.Execute(null);
+
+            base.OnExit(e);
         }
 
         /// <summary>Set current culture settings</summary>

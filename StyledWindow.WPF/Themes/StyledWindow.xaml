@@ -9,7 +9,8 @@
                      xmlns:behaviors="clr-namespace:MathCore.WPF.Behaviors;assembly=MathCore.WPF"
                      xmlns:components="clr-namespace:StyledWindow.WPF.Components"
                      xmlns:collections="clr-namespace:System.Collections;assembly=System.Runtime"
-                     xmlns:commands="clr-namespace:StyledWindow.WPF.Commands">
+                     xmlns:commands="clr-namespace:StyledWindow.WPF.Commands"
+                     xmlns:themes1="clr-namespace:StyledWindow.WPF.Components.Themes">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/materialdesigntheme.popupbox.xaml" />
@@ -208,71 +209,31 @@
                                         <Setter Property="CacheMode" Value="BitmapCache"/>
                                     </Style>
                                 </StackPanel.Resources>
-                                <!--<components:ThemeButton  Margin="5 0">
-                                    <components:ThemeButton.Style>
-                                        <Style TargetType="{x:Type components:ThemeButton}">
+
+
+                                <!--#region кнопки смены стиля-->
+                                <ContentControl>
+                                    <themes1:ThemeTitleControlView ToolTipService.Placement="Left"/>
+                                    <ContentControl.Style>
+                                        <Style TargetType="{x:Type ContentControl}">
                                             <Style.Triggers>
-                                                <DataTrigger Binding="{Binding (themes:StyledWindow.ThemeButtonVisible), RelativeSource={RelativeSource TemplatedParent}}" Value="False">
+                                                <DataTrigger Binding="{Binding (themes:StyledWindow.ThemeButtonVisible), 
+                                                    RelativeSource={RelativeSource TemplatedParent}}" Value="False">
                                                     <Setter Property="Visibility" Value="Collapsed"/>
                                                 </DataTrigger>
                                             </Style.Triggers>
                                         </Style>
-                                    </components:ThemeButton.Style>
-                                </components:ThemeButton>-->
-                                <ToggleButton x:Name="_themeBtn" Margin="10 0"
-                                              Loaded="_themeBtn_OnLoaded"
-                                              Command="{commands:ChangeThemeCommand}"
-                                              CommandParameter="{Binding IsChecked, ElementName=_themeBtn}"
-                                              ToolTip="{Binding IsChecked, ElementName=_themeBtn, Converter={c:BoolToStringSelectValueConverter True=Light, False=Dark}}">
-                                    <ToggleButton.Style>
-                                        <Style TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource MaterialDesignSwitchToggleButton}">
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding (themes:StyledWindow.ThemeButtonVisible), RelativeSource={RelativeSource TemplatedParent}}" Value="False">
-                                                    <Setter Property="Visibility" Value="Collapsed"/>
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </ToggleButton.Style>
-                                    <ToggleButton.Resources>
-                                        <Style TargetType="materialDesign:PackIcon">
-                                            <Setter Property="VerticalAlignment" Value="Stretch"/>
-                                        </Style>
-                                    </ToggleButton.Resources>
+                                    </ContentControl.Style>
 
-                                    <materialDesign:PackIcon Kind="WhiteBalanceSunny"/>
-                                    <materialDesign:ToggleButtonAssist.OnContent>
-                                        <materialDesign:PackIcon Kind="MoonAndStars"/>
-                                    </materialDesign:ToggleButtonAssist.OnContent>
-                                </ToggleButton>
+                                </ContentControl>
 
-                                <materialDesign:PopupBox StaysOpen="False" ToolTip="Language"
-                                                         DataContext="{Binding (themes:StyledWindow.LanguageContent), RelativeSource={RelativeSource TemplatedParent}}">
-                                    <materialDesign:PopupBox.ToggleContent>
-                                        <materialDesign:PackIcon Kind="Language"
-                                                                 HorizontalAlignment="Center"
-                                                                 Foreground="{DynamicResource MaterialDesignBody}">
-                                        </materialDesign:PackIcon>
-                                    </materialDesign:PopupBox.ToggleContent>
-                                    <ItemsControl ItemsSource="{Binding}">
-                                        <ItemsControl.ItemsPanel>
-                                            <ItemsPanelTemplate>
-                                                <StackPanel/>
-                                            </ItemsPanelTemplate>
-                                        </ItemsControl.ItemsPanel>
-                                        <ItemsControl.ItemTemplate>
-                                            <DataTemplate DataType="{x:Type components:LanguageInfo}">
-                                                <Button Command="LocalizationManager.ChangeCultureCommand"
-                                                        CommandParameter="{Binding CultureName}" 
-                                                        ToolTipService.Placement="Left"
-                                                        ToolTip="{Binding ShortName}" 
-                                                        Foreground="{DynamicResource MaterialDesignBody}">
-                                                    <TextBlock Text="{Binding ShortName}" Height="20" Width="50" TextAlignment="Center" VerticalAlignment="Center"/>
-                                                </Button>
-                                            </DataTemplate>
-                                        </ItemsControl.ItemTemplate>
-                                    </ItemsControl>
-                                    <materialDesign:PopupBox.Style>
-                                        <Style TargetType="{x:Type materialDesign:PopupBox}" BasedOn="{StaticResource PopUpTitled}">
+                                <!--#endregion-->
+
+                                <!--#region Кнопки смены языка-->
+                                <ContentControl>
+                                    <components:LanguagePopUpTitle DataContext="{Binding (themes:StyledWindow.LanguageContent), RelativeSource={RelativeSource TemplatedParent}}"/>
+                                    <ContentControl.Style>
+                                        <Style TargetType="{x:Type ContentControl}">
                                             <Style.Triggers>
                                                 <MultiDataTrigger>
                                                     <MultiDataTrigger.Conditions>
@@ -289,13 +250,14 @@
                                                 </DataTrigger>
                                             </Style.Triggers>
                                         </Style>
-                                    </materialDesign:PopupBox.Style>
-                                </materialDesign:PopupBox>
 
-                                <!--<components:LanguagePopUpTitle
-                                    Visibility="{Binding (themes:StyledWindow.LanguageContent), RelativeSource={RelativeSource TemplatedParent},
-                                                    Converter={Combine First={c:IsNotNull}, Then={Bool2Visibility Collapsed=True}}}"
-                                                               DataContext="{Binding (themes:StyledWindow.LanguageContent), RelativeSource={RelativeSource TemplatedParent}}"/>-->
+                                    </ContentControl.Style>
+
+                                </ContentControl>
+                                <!--#endregion-->
+
+                                <!--#region TopMost-->
+
                                 <ToggleButton x:Name="TopMostSelector" 
                                               IsChecked="{Binding Topmost, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                                               ToolTip="Topmost"
@@ -332,6 +294,11 @@
                                         </Style>
                                     </ToggleButton.Style>
                                 </ToggleButton>
+
+                                <!--#endregion-->
+
+                                <!--#region Базовые кнопки окна-->
+
                                 <Button Command="{MinimizeWindow}"
                                         CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
                                         Foreground="{DynamicResource MaterialDesignBody}">
@@ -350,6 +317,8 @@
                                         Foreground="{DynamicResource MaterialDesignBody}">
                                     <materialDesign:PackIcon Kind="WindowClose" CacheMode="BitmapCache"/>
                                 </Button>
+
+                                <!--#endregion-->
                             </StackPanel>
                             <ContentControl DockPanel.Dock="Right" Margin="10,0"
                                             Content="{Binding (themes:StyledWindow.HeaderContent), RelativeSource={RelativeSource TemplatedParent}}"/>
