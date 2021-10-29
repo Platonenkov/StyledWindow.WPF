@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
 using System.Windows.Markup;
+using MathCore.WPF.Converters;
 
 namespace StyledWindow.WPF.Converters
 {
@@ -34,9 +35,9 @@ namespace StyledWindow.WPF.Converters
         }
         private string _False;
 
-        public override object Convert(object value, Type targetType, object parameter, CultureInfo culture) => value != null && ((bool)value) ? True : False;
+        protected override object Convert(object value, Type targetType, object parameter, CultureInfo culture) => value != null && ((bool)value) ? True : False;
 
-        public override object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        protected override object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             throw new NotSupportedException("Cannot convert back");
         }
