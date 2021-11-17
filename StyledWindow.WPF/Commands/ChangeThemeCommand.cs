@@ -1,5 +1,4 @@
 ﻿using MaterialDesignThemes.Wpf;
-using MathCore.Annotations;
 using MathCore.WPF.Commands;
 
 namespace StyledWindow.WPF.Commands

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls.Primitives;
 using MaterialDesignThemes.Wpf;
-using MathCore;
 using StyledWindow.WPF.Components;
 
 namespace StyledWindow.WPF.Themes
