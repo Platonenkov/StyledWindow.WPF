@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls.Primitives;
+using System.Windows.Forms;
 using MaterialDesignThemes.Wpf;
-using MathCore;
 using StyledWindow.WPF.Components;
 
 namespace StyledWindow.WPF.Themes
@@ -115,6 +115,15 @@ namespace StyledWindow.WPF.Themes
 
         #endregion
 
+        public StyledWindow()
+        {
+            var Position = Taskbar.Position;
+            var AlwaysOnTop = Taskbar.AlwaysOnTop ;
+            var AutoHide = Taskbar.AutoHide;
+            var CurrentBounds = Taskbar.CurrentBounds;
+            var DisplayBounds = Taskbar.DisplayBounds;
+            var Handle = Taskbar.Handle;
+        }
 
 
 

@@ -1,11 +1,14 @@
-# StyledWindow.WPF
+# StyledWindow.WPF 
+Библиотека с настроенным стилем окна для Windows WPF приложения.
+
+`Install-Package StyledWindow.WPF -Version 1.1.0.0`
 
 ![Styled](https://github.com/Platonenkov/StyledWindow.WPF/blob/master/Resources/Header.png)
   <p >
 <img src="https://github.com/Platonenkov/StyledWindow.WPF/blob/master/Resources/WIndowDark.png" alt="WIndowDark" width="400"/>
 <img src="https://github.com/Platonenkov/StyledWindow.WPF/blob/master/Resources/WindowLight.png" alt="WindowLight" width="400"/>
 </p>
-Библиотека с настроенным стилем окна для Windows WPF приложения.
+
 
 ### Что есть на титульном баре
 
@@ -14,7 +17,7 @@
 * Кнопка смены языка локализации приложения
 * Кнопка настройки темы (светлая/тёмная темы и цвета шрифтов и панелей)
 * Любой контент какой хотите отразить в Title
-* Стантартное место под иконку
+* Стандартное место под иконку
 
 ![Styled](https://github.com/Platonenkov/StyledWindow.WPF/blob/master/Resources/Styled.gif)
 ### Как настроить
@@ -22,19 +25,23 @@
 #### 1. Настраиваем App.xaml
 
 ```xaml
+...
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-            
                 <materialDesign:BundledTheme BaseTheme="Inherit" PrimaryColor="Amber" SecondaryColor="LightBlue"
                                              ColorAdjustment="{materialDesign:ColorAdjustment}" />
-                                             
                 <ResourceDictionary Source="pack://application:,,,/StyledWindow.WPF;component/Themes/StyledWindow.xaml" />
-
+                
+                <!-- Other ...-->
+                
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
 
     </Application.Resources>
+</Application>
 
 ```
 #### 2. Настраиваем [App.xaml.cs](https://github.com/Platonenkov/StyledWindow.WPF/blob/master/TestApp.WPF/App.xaml.cs)
@@ -73,6 +80,11 @@
 
 ![Styled](https://github.com/Platonenkov/StyledWindow.WPF/blob/master/Resources/LanguageContent.png)
 
+```C#
+
+//ThemeEx.ChangeCulture += OnCultureChange Action<string>;
+ThemeEx.ChangeCulture += LocalizationManager.ChangeCulture;
+```
 #### Подробнее про работу с локализацией и настройку [Localization.WPF](https://github.com/Platonenkov/Localization.WPF)
 
 ### Любой контент который нужно пометить в шапке
