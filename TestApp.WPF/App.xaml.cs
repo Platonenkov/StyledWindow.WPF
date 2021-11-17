@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 using Localization.WPF;
 using StyledWindow.WPF.Commands;
@@ -15,6 +11,7 @@ namespace TestApp.WPF
     {
         public App()
         {
+            //ThemeEx.ChangeCulture += Action<string>;
             SetCulture();
         }
         protected override async void OnStartup(StartupEventArgs e)
@@ -38,6 +35,8 @@ namespace TestApp.WPF
         /// <summary>Set current culture settings</summary>
         private static void SetCulture()
         {
+            ThemeEx.ChangeCulture += LocalizationManager.ChangeCulture;
+
             LocalizationManager.CultureChanging += (s, e) => //Running when application culture is changed
             {
                 var culture = e.NewCulture;

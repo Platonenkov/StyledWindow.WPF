@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace StyledWindow.WPF.Components
+﻿namespace StyledWindow.WPF.Components
 {
     public class LanguageInfo
     {

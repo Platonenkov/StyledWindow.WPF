@@ -3,7 +3,6 @@ using System.IO;
 using System.Text.Json;
 using System.Threading.Tasks;
 using MaterialDesignThemes.Wpf;
-using MathCore.Annotations;
 using MathCore.WPF.Commands;
 
 namespace StyledWindow.WPF.Commands

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
-using System.Windows.Data;
-using System.Windows.Markup;
-
-namespace StyledWindow.WPF.Converters
+﻿namespace StyledWindow.WPF.Converters
 {
     //[MarkupExtensionReturnType(typeof(ValueConverter))]
     //internal abstract class ValueConverter : MarkupExtension, IValueConverter
