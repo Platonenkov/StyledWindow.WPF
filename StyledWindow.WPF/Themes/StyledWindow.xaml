@@ -173,6 +173,9 @@
 
             <Grid x:Name="PART_MainGrid" 
                   Background="{DynamicResource MaterialDesignPaper}">
+                <b:Interaction.Behaviors>
+                    <behaviors:WindowMaximizationLimitattor/>
+                </b:Interaction.Behaviors>
                 <DockPanel>
                     <!-- Заголовок окна -->
                     <Grid Name="PART_TitleBar" DockPanel.Dock="Top">
@@ -458,7 +461,6 @@
             </Trigger> 
             <Trigger Property="WindowState" Value="Maximized">
                 <Setter TargetName="PART_MaximizeButtonPath" Property="Kind" Value="WindowRestore"/>
-                <Setter TargetName="PART_MainGrid" Property="Margin" Value="7"/>
                 <Setter TargetName="PART_Border" Property="Margin" Value="7"/>
                 <Setter TargetName="PART_Border" Property="BorderThickness" Value="7"/>
                 <Setter TargetName="PART_ResizeElements" Property="Visibility" Value="Collapsed"/>
