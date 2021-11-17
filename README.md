@@ -1,7 +1,7 @@
 # StyledWindow.WPF 
 Библиотека с настроенным стилем окна для Windows WPF приложения.
 
-`Install-Package StyledWindow.WPF -Version 1.0.0.0`
+`Install-Package StyledWindow.WPF -Version 1.1.0.0`
 
 ![Styled](https://github.com/Platonenkov/StyledWindow.WPF/blob/master/Resources/Header.png)
   <p >
@@ -80,6 +80,11 @@
 
 ![Styled](https://github.com/Platonenkov/StyledWindow.WPF/blob/master/Resources/LanguageContent.png)
 
+```C#
+
+//ThemeEx.ChangeCulture += OnCultureChange Action<string>;
+ThemeEx.ChangeCulture += LocalizationManager.ChangeCulture;
+```
 #### Подробнее про работу с локализацией и настройку [Localization.WPF](https://github.com/Platonenkov/Localization.WPF)
 
 ### Любой контент который нужно пометить в шапке
