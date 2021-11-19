@@ -117,12 +117,12 @@ namespace StyledWindow.WPF.Themes
 
         public StyledWindow()
         {
-            var Position = Taskbar.Position;
-            var AlwaysOnTop = Taskbar.AlwaysOnTop ;
-            var AutoHide = Taskbar.AutoHide;
-            var CurrentBounds = Taskbar.CurrentBounds;
-            var DisplayBounds = Taskbar.DisplayBounds;
-            var Handle = Taskbar.Handle;
+            //var Position = Taskbar.Position;
+            //var AlwaysOnTop = Taskbar.AlwaysOnTop ;
+            //var AutoHide = Taskbar.AutoHide;
+            //var CurrentBounds = Taskbar.CurrentBounds;
+            //var DisplayBounds = Taskbar.DisplayBounds;
+            //var Handle = Taskbar.Handle;
         }
 
 
