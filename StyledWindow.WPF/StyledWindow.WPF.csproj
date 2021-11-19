@@ -6,8 +6,8 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <Version>1.1.0</Version>
-    <PackageReleaseNotes>Remove Localization and LockFile dependencies</PackageReleaseNotes>
+    <Version>1.1.0.1</Version>
+    <PackageReleaseNotes>Fix borders</PackageReleaseNotes>
     <SourceRevisionId>
       ^build_date$([System.DateTime]::UtcNow.ToString("yyyy-MM-ddTHH:mm:ss:fffZ"))
     </SourceRevisionId>
@@ -36,6 +36,7 @@
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <ExtrasEnableWpfProjectSetup>true</ExtrasEnableWpfProjectSetup>
   </PropertyGroup>
 
 

@@ -461,8 +461,9 @@
             </Trigger> 
             <Trigger Property="WindowState" Value="Maximized">
                 <Setter TargetName="PART_MaximizeButtonPath" Property="Kind" Value="WindowRestore"/>
-                <Setter TargetName="PART_Border" Property="Margin" Value="7"/>
-                <Setter TargetName="PART_Border" Property="BorderThickness" Value="7"/>
+                <Setter TargetName="PART_MainGrid" Property="Margin" Value="0"/>
+                <Setter TargetName="PART_Border" Property="Margin" Value="0"/>
+                <Setter TargetName="PART_Border" Property="BorderThickness" Value="0"/>
                 <Setter TargetName="PART_ResizeElements" Property="Visibility" Value="Collapsed"/>
                 <Setter TargetName="PART_ResizeElements" Property="IsEnabled" Value="False"/>
             </Trigger>
