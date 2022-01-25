@@ -115,3 +115,7 @@ ThemeEx.ChangeCulture += LocalizationManager.ChangeCulture;
 ### Подробнее про использование [темы MaterialDesignInXamlToolkit](https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit)
 
 ![Styled](https://github.com/Platonenkov/StyledWindow.WPF/blob/master/Resources/ThemeContent.png)
+
+
+### known issues:
+`UseLayoutRounding="True"` removes the border at the window...
