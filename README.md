@@ -38,6 +38,18 @@
                 <!-- Other ...-->
                 
             </ResourceDictionary.MergedDictionaries>
+            
+            <Style x:Key="LocalizedStyledWindow"  TargetType="{x:Type Window}" BasedOn="{StaticResource StyledWindow}">
+                <Setter Property="themes:StyledWindow.LanguageContent">
+                    <Setter.Value>
+                        <themes:KnownLanguages>
+                            <components:LanguageInfo CultureName="ru-RU" ShortName="Ru"/>
+                            <components:LanguageInfo CultureName="en-US" ShortName="En"/>
+                        </themes:KnownLanguages>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            
         </ResourceDictionary>
 
     </Application.Resources>
@@ -49,14 +61,14 @@
 #### 3. Применяем стиль к окну
 
 ```xaml
-        Style="{StaticResource StyledWindow}"
+        Style="{StaticResource LocalizedStyledWindow}"
 ```
 
 ### Настройка отображения кнопок
 ```xaml
 <Window ...
         xmlns:themes="clr-namespace:StyledWindow.WPF.Themes;assembly=StyledWindow.WPF"
-        Style="{StaticResource StyledWindow}"
+        Style="{StaticResource LocalizedStyledWindow}"
         
         themes:StyledWindow.LanguageButtonVisible="True"
         themes:StyledWindow.ThemeButtonVisible="True"
@@ -103,3 +115,7 @@ ThemeEx.ChangeCulture += LocalizationManager.ChangeCulture;
 ### Подробнее про использование [темы MaterialDesignInXamlToolkit](https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit)
 
 ![Styled](https://github.com/Platonenkov/StyledWindow.WPF/blob/master/Resources/ThemeContent.png)
+
+
+### known issues:
+`UseLayoutRounding="True"` removes the border at the window...
