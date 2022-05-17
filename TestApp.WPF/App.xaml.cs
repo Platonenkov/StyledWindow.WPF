@@ -24,7 +24,7 @@ namespace TestApp.WPF
 
         protected override async void OnExit(ExitEventArgs e)
         {
-            await ThemeEx.SaveThemeAsync(null).ConfigureAwait(false);
+            await ThemeEx.SaveThemeAsync(null).ConfigureAwait(true);
 
             //var save_com = new SaveThemeCommand();
             //save_com.Execute(null);
