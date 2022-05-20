@@ -1,7 +1,7 @@
 # StyledWindow.WPF 
 Библиотека с настроенным стилем окна для Windows WPF приложения.
 
-`Install-Package StyledWindow.WPF -Version 1.1.0.0`
+`Install-Package StyledWindow.WPF -Version 6.0.0.1`
 
 ![Styled](https://github.com/Platonenkov/StyledWindow.WPF/blob/master/Resources/Header.png)
   <p >
@@ -27,13 +27,15 @@
 ```xaml
 ...
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:themes="clr-namespace:StyledWindow.WPF.Themes;assembly=StyledWindow.WPF"
+             xmlns:components="clr-namespace:StyledWindow.WPF.Components;assembly=StyledWindow.WPF"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <materialDesign:BundledTheme BaseTheme="Inherit" PrimaryColor="Amber" SecondaryColor="LightBlue"
                                              ColorAdjustment="{materialDesign:ColorAdjustment}" />
-                <ResourceDictionary Source="pack://application:,,,/StyledWindow.WPF;component/Themes/StyledWindow.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/StyledWindow.WPF;component/Themes/Generic.xaml" />
                 
                 <!-- Other ...-->
                 
