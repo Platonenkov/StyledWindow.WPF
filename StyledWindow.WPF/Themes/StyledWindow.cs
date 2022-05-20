@@ -1,10 +1,11 @@
-﻿using System;
+﻿using MaterialDesignThemes.Wpf;
+
+using StyledWindow.WPF.Components;
+
+using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls.Primitives;
-using System.Windows.Forms;
-using MaterialDesignThemes.Wpf;
-using StyledWindow.WPF.Components;
 
 namespace StyledWindow.WPF.Themes
 {
@@ -100,6 +101,24 @@ namespace StyledWindow.WPF.Themes
 
         /// <summary>Видимость кнопки "Theme"</summary>
         public static bool GetThemeButtonVisible(DependencyObject d) => (bool)d.GetValue(ThemeButtonVisibleProperty);
+
+        #endregion
+        #region Attached property ThemeToggleVisible : bool - Видимость кнопки переключателя темы
+
+        /// <summary>Видимость кнопки переключателя темы</summary>
+        public static readonly DependencyProperty ThemeToggleVisibleProperty =
+            DependencyProperty.RegisterAttached(
+                "ThemeToggleVisible",
+                typeof(bool),
+                typeof(StyledWindow),
+                new PropertyMetadata(false));
+
+        /// <summary>Видимость кнопки переключателя темы</summary>
+        [AttachedPropertyBrowsableForType(typeof(Window))]
+        public static void SetThemeToggleVisible(DependencyObject d, bool value) => d.SetValue(ThemeToggleVisibleProperty, value);
+
+        /// <summary>Видимость кнопки переключателя темы</summary>
+        public static bool GetThemeToggleVisible(DependencyObject d) => (bool)d.GetValue(ThemeToggleVisibleProperty);
 
         #endregion
         #region Theme

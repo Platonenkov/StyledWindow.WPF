@@ -3,11 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:themes="clr-namespace:StyledWindow.WPF.Themes;assembly=StyledWindow.WPF"
-        xmlns:components="clr-namespace:StyledWindow.WPF.Components;assembly=StyledWindow.WPF"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        xmlns:themes1="clr-namespace:StyledWindow.WPF.Components.Themes;assembly=StyledWindow.WPF"
         xmlns:wpf="clr-namespace:TestApp.WPF"
+        xmlns:SW="clr-namespace:StyledWindow.WPF.Components;assembly=StyledWindow.WPF"
+        xmlns:themes="clr-namespace:StyledWindow.WPF.Themes;assembly=StyledWindow.WPF"
+        xmlns:themes1="clr-namespace:StyledWindow.WPF.Components.Themes;assembly=StyledWindow.WPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
         Style="{StaticResource StyledWindow}"
@@ -16,8 +16,8 @@
 
     <themes:StyledWindow.LanguageContent>
         <themes:KnownLanguages>
-            <components:LanguageInfo CultureName="ru-RU" ShortName="Ru"/>
-            <components:LanguageInfo CultureName="en-US" ShortName="En"/>
+            <SW:LanguageInfo CultureName="ru-RU" ShortName="Ru"/>
+            <SW:LanguageInfo CultureName="en-US" ShortName="En"/>
         </themes:KnownLanguages>
     </themes:StyledWindow.LanguageContent>
     <themes:StyledWindow.HeaderContent>
