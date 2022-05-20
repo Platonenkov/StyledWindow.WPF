@@ -1,0 +1,305 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>StyledWindow.WPF</name>
+    </assembly>
+    <members>
+        <member name="T:StyledWindow.WPF.Commands.ChangeCultureCommand">
+            <summary> Команда смены темы светлая-тёмная </summary>
+        </member>
+        <member name="M:StyledWindow.WPF.Commands.ChangeCultureCommand.Execute(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:StyledWindow.WPF.Commands.ThemeEx.LoadThemeAsync(System.String)">
+            <summary> загрузка темы </summary>
+        </member>
+        <member name="T:StyledWindow.WPF.Commands.ChangeThemeCommand">
+            <summary> Команда смены темы светлая-тёмная </summary>
+        </member>
+        <member name="M:StyledWindow.WPF.Commands.ChangeThemeCommand.Execute(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="T:StyledWindow.WPF.Commands.LoadThemeCommand">
+            <summary> Команда загрузки темы </summary>
+        </member>
+        <member name="T:StyledWindow.WPF.Commands.SaveThemeCommand">
+            <summary> Команда сохранить тему </summary>
+        </member>
+        <member name="T:StyledWindow.WPF.Components.LanguageEnRu">
+            <summary>
+            Логика взаимодействия для LanguageEnRu.xaml
+            </summary>
+            <summary>
+            LanguageEnRu
+            </summary>
+        </member>
+        <member name="M:StyledWindow.WPF.Components.LanguageEnRu.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="P:StyledWindow.WPF.Components.LanguageInfo.CultureName">
+            <summary>
+            Полное наименование культуры (en-US)
+            </summary>
+        </member>
+        <member name="P:StyledWindow.WPF.Components.LanguageInfo.ShortName">
+            <summary> Короткое наименование (En)</summary>
+        </member>
+        <member name="T:StyledWindow.WPF.Components.LanguagePopUpTitle">
+            <summary>
+            Логика взаимодействия для LanguagePopUpTitle.xaml
+            </summary>
+            <summary>
+            LanguagePopUpTitle
+            </summary>
+        </member>
+        <member name="M:StyledWindow.WPF.Components.LanguagePopUpTitle.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StyledWindow.WPF.Components.ThemeButton">
+            <summary>
+            Логика взаимодействия для ThemeButton.xaml
+            </summary>
+            <summary>
+            ThemeButton
+            </summary>
+        </member>
+        <member name="M:StyledWindow.WPF.Components.ThemeButton.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StyledWindow.WPF.Components.Themes.ColorTool">
+            <summary>
+            Логика взаимодействия для ColorTool.xaml
+            </summary>
+            <summary>
+            ColorTool
+            </summary>
+        </member>
+        <member name="M:StyledWindow.WPF.Components.Themes.ColorTool.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StyledWindow.WPF.Components.Themes.Palette">
+            <summary>
+            Логика взаимодействия для Palette.xaml
+            </summary>
+            <summary>
+            Palette
+            </summary>
+        </member>
+        <member name="M:StyledWindow.WPF.Components.Themes.Palette.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StyledWindow.WPF.Components.Themes.PaletteSelector">
+            <summary>
+            Логика взаимодействия для PaletteSelector.xaml
+            </summary>
+            <summary>
+            PaletteSelector
+            </summary>
+        </member>
+        <member name="M:StyledWindow.WPF.Components.Themes.PaletteSelector.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StyledWindow.WPF.Components.Themes.ThemeSettings">
+            <summary>
+            Логика взаимодействия для ThemeSettings.xaml
+            </summary>
+            <summary>
+            ThemeSettings
+            </summary>
+        </member>
+        <member name="M:StyledWindow.WPF.Components.Themes.ThemeSettings.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StyledWindow.WPF.Components.Themes.ThemeTitleControlView">
+            <summary>
+            Логика взаимодействия для ThemeTitleControlView.xaml
+            </summary>
+            <summary>
+            ThemeTitleControlView
+            </summary>
+        </member>
+        <member name="M:StyledWindow.WPF.Components.Themes.ThemeTitleControlView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StyledWindow.WPF.Converters.BoolToStringSelectValueConverter">
+            <summary>
+            Конвертер значения bool в текст
+            задайте в параметрах значение для True и False
+            </summary>
+        </member>
+        <member name="P:StyledWindow.WPF.Converters.BoolToStringSelectValueConverter.True">
+            <summary>Возвращаемое значение при Истина</summary>
+        </member>
+        <member name="P:StyledWindow.WPF.Converters.BoolToStringSelectValueConverter.False">
+            <summary>Возвращаемое значение при Лож</summary>
+        </member>
+        <member name="T:StyledWindow.WPF.Themes.StyledWindow">
+            <summary>
+            StyledWindow
+            </summary>
+        </member>
+        <member name="F:StyledWindow.WPF.Themes.StyledWindow.TopmostButtonVisibleProperty">
+            <summary>Видимость кнопки "Поверх всех окон"</summary>
+        </member>
+        <member name="M:StyledWindow.WPF.Themes.StyledWindow.SetTopmostButtonVisible(System.Windows.DependencyObject,System.Boolean)">
+            <summary>Видимость кнопки "Поверх всех окон"</summary>
+        </member>
+        <member name="M:StyledWindow.WPF.Themes.StyledWindow.GetTopmostButtonVisible(System.Windows.DependencyObject)">
+            <summary>Видимость кнопки "Поверх всех окон"</summary>
+        </member>
+        <member name="F:StyledWindow.WPF.Themes.StyledWindow.HeaderContentProperty">
+            <summary>Содержимое заголовка окна</summary>
+        </member>
+        <member name="M:StyledWindow.WPF.Themes.StyledWindow.SetHeaderContent(System.Windows.DependencyObject,System.Object)">
+            <summary>Содержимое заголовка окна</summary>
+        </member>
+        <member name="M:StyledWindow.WPF.Themes.StyledWindow.GetHeaderContent(System.Windows.DependencyObject)">
+            <summary>Содержимое заголовка окна</summary>
+        </member>
+        <member name="F:StyledWindow.WPF.Themes.StyledWindow.LanguageContentProperty">
+            <summary>Список языков</summary>
+        </member>
+        <member name="M:StyledWindow.WPF.Themes.StyledWindow.SetLanguageContent(System.Windows.DependencyObject,System.Collections.Generic.IEnumerable{StyledWindow.WPF.Components.LanguageInfo})">
+            <summary>Список языков</summary>
+        </member>
+        <member name="M:StyledWindow.WPF.Themes.StyledWindow.GetLanguageContent(System.Windows.DependencyObject)">
+            <summary>Список языков</summary>
+        </member>
+        <member name="F:StyledWindow.WPF.Themes.StyledWindow.LanguageButtonVisibleProperty">
+            <summary>Видимость кнопки "Language"</summary>
+        </member>
+        <member name="M:StyledWindow.WPF.Themes.StyledWindow.SetLanguageButtonVisible(System.Windows.DependencyObject,System.Boolean)">
+            <summary>Видимость кнопки "Language"</summary>
+        </member>
+        <member name="M:StyledWindow.WPF.Themes.StyledWindow.GetLanguageButtonVisible(System.Windows.DependencyObject)">
+            <summary>Видимость кнопки "Language"</summary>
+        </member>
+        <member name="F:StyledWindow.WPF.Themes.StyledWindow.ThemeButtonVisibleProperty">
+            <summary>Видимость кнопки "Theme"</summary>
+        </member>
+        <member name="M:StyledWindow.WPF.Themes.StyledWindow.SetThemeButtonVisible(System.Windows.DependencyObject,System.Boolean)">
+            <summary>Видимость кнопки "Theme"</summary>
+        </member>
+        <member name="M:StyledWindow.WPF.Themes.StyledWindow.GetThemeButtonVisible(System.Windows.DependencyObject)">
+            <summary>Видимость кнопки "Theme"</summary>
+        </member>
+        <member name="F:StyledWindow.WPF.Themes.StyledWindow.ThemeToggleVisibleProperty">
+            <summary>Видимость кнопки переключателя темы</summary>
+        </member>
+        <member name="M:StyledWindow.WPF.Themes.StyledWindow.SetThemeToggleVisible(System.Windows.DependencyObject,System.Boolean)">
+            <summary>Видимость кнопки переключателя темы</summary>
+        </member>
+        <member name="M:StyledWindow.WPF.Themes.StyledWindow.GetThemeToggleVisible(System.Windows.DependencyObject)">
+            <summary>Видимость кнопки переключателя темы</summary>
+        </member>
+        <member name="M:StyledWindow.WPF.Themes.StyledWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:System.IO.FileInfoExtensions.GetLockProcesses(System.IO.FileSystemInfo)">
+            <summary>Получить массив процессов, блокирующих файл</summary>
+            <param name="file">Файл, который требуется проверить</param>
+            <returns>Массив процессов, заблокировавших файл</returns>
+        </member>
+        <member name="M:System.IO.FileInfoExtensions.EnumLockProcesses(System.IO.FileSystemInfo)">
+            <summary>Перечисление процессов, блокирующих файл</summary>
+            <param name="file">Файл, который требуется проверить</param>
+            <returns>Перечисление процессов, заблокировавших файл</returns>
+        </member>
+        <member name="M:System.IO.FileInfoExtensions.IsLocked(System.IO.FileInfo)">
+            <summary>Заблокирован ли файл другим процессом?</summary>
+            <param name="file">Проверяемый файл</param>
+            <returns>Истина, если файл заблокирован другим процессом</returns>
+        </member>
+        <member name="T:System.IO.FileInfoExtensions.ProcessInfo">
+            <summary>Describes an application that is to be registered with the Restart Manager</summary> 
+        </member>
+        <member name="T:System.IO.FileInfoExtensions.AppType">
+            <summary> 
+            Specifies the type of application that is described by 
+            the ProcessInfo structure. 
+            </summary> 
+        </member>
+        <member name="M:System.Windows.Forms.Taskbar.#cctor">
+            <summary>Static initializer of the <see cref="T:System.Windows.Forms.Taskbar" /> class.</summary>
+        </member>
+        <member name="P:System.Windows.Forms.Taskbar.AlwaysOnTop">
+            <summary>
+              Gets a value indicating whether the taskbar is always on top of other windows.
+            </summary>
+            <value><c>true</c> if the taskbar is always on top of other windows; otherwise, <c>false</c>.</value>
+            <remarks>This property always returns <c>false</c> on Windows 7 and newer.</remarks>
+        </member>
+        <member name="P:System.Windows.Forms.Taskbar.AutoHide">
+            <summary>
+              Gets a value indicating whether the taskbar is automatically hidden when inactive.
+            </summary>
+            <value><c>true</c> if the taskbar is set to auto-hide is enabled; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:System.Windows.Forms.Taskbar.CurrentBounds">
+            <summary>Gets the current display bounds of the taskbar.</summary>
+        </member>
+        <member name="P:System.Windows.Forms.Taskbar.DisplayBounds">
+            <summary>Gets the display bounds when the taskbar is fully visible.</summary>
+        </member>
+        <member name="P:System.Windows.Forms.Taskbar.Handle">
+            <summary>Gets the taskbar's window handle.</summary>
+        </member>
+        <member name="P:System.Windows.Forms.Taskbar.Position">
+            <summary>Gets the taskbar's position on the screen.</summary>
+        </member>
+        <member name="M:System.Windows.Forms.Taskbar.Hide">
+            <summary>Hides the taskbar.</summary>
+        </member>
+        <member name="M:System.Windows.Forms.Taskbar.Show">
+            <summary>Shows the taskbar.</summary>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -9,7 +9,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <materialDesign:BundledTheme BaseTheme="Inherit" PrimaryColor="Amber" SecondaryColor="LightBlue"
                                              ColorAdjustment="{materialDesign:ColorAdjustment}" />
-                <ResourceDictionary Source="pack://application:,,,/StyledWindow.WPF;component/Themes/StyledWindow.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/StyledWindow.WPF;component/Themes/Generic.xaml" />
 
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
