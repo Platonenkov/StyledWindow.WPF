@@ -195,7 +195,7 @@
                                     <Setter Property="Margin" Value="10"/>
                                 </Style>
                             </DockPanel.Resources>
-                            <Image Name="PART_Icon" Margin="8,5,4,5" Source="{TemplateBinding Icon}">
+                            <Image Name="PART_Icon" Margin="8,5,4,5" Source="{TemplateBinding Icon}" DockPanel.Dock="Left">
                                 <b:Interaction.Behaviors>
                                     <behaviors:WindowSystemIconBehavior/>
                                 </b:Interaction.Behaviors>

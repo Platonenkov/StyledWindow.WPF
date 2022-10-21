@@ -1,11 +1,10 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:markup="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:themes="clr-namespace:StyledWindow.WPF.Themes">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/StyledWindow.WPF;component/Themes/StyledWindow.xaml" />
     </ResourceDictionary.MergedDictionaries>
-    <Style TargetType="{markup:Type Window}"
+    <Style TargetType="{x:Type Window}"
            x:Key="StyledWindow"
            BasedOn="{StaticResource MaterialDesignWindow}">
         <Setter Property="themes:StyledWindow.HeaderContent"
