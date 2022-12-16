@@ -6,8 +6,8 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <Version>6.0.0.1</Version>
-    <PackageReleaseNotes>net6 support, short namespace, update dependencies</PackageReleaseNotes>
+    <Version>6.0.0.2</Version>
+    <PackageReleaseNotes>fix border</PackageReleaseNotes>
     <SourceRevisionId>
       ^build_date$([System.DateTime]::UtcNow.ToString("yyyy-MM-ddTHH:mm:ss:fffZ"))
     </SourceRevisionId>
