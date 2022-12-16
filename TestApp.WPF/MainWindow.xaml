@@ -11,7 +11,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
         Style="{StaticResource StyledWindow}"
-        Icon="Resources/icon.png">
+        Icon="Resources/icon.png" WindowStartupLocation="CenterScreen">
     <!--restart project after changing attached parameters-->
 
     <themes:StyledWindow.LanguageContent>
@@ -23,31 +23,39 @@
     <themes:StyledWindow.HeaderContent>
         <TextBlock Text="Header test content" VerticalAlignment="Center" />
     </themes:StyledWindow.HeaderContent>
-    <StackPanel>
-        <Button Content="Button Sample" Margin="5" HorizontalAlignment="Center"/>
-        <ToggleButton Content="{materialDesign:PackIcon Smiley}" Margin="5"
-                      Background="{DynamicResource SecondaryHueMidBrush}"
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top">
+            <Button Content="Button Sample"
+                    Margin="5"
+                    HorizontalAlignment="Center"
+                    Click="ButtonBase_OnClick" />
+            <ToggleButton Content="{materialDesign:PackIcon Smiley}"
+                          Margin="5"
+                          Background="{DynamicResource SecondaryHueMidBrush}" />
+            <TextBox Text="Sample TextBox"
+                     Margin="5"
+                     materialDesign:TextFieldAssist.HasClearButton="True" />
+            <TextBox Text="Sample TextBox"
+                     Margin="5"
+                     Style="{StaticResource MaterialDesignFilledTextBox}" />
+            <TextBox Text="Sample TextBox"
+                     Margin="5"
+                     Style="{StaticResource MaterialDesignFilledTextBox}"
+                     materialDesign:TextFieldAssist.HasClearButton="True"
+                     materialDesign:HintAssist.Hint="Description" />
+            <ComboBox Style="{StaticResource MaterialDesignFilledComboBox}"
+                      Margin="5"
+                      IsEditable="True"
+                      materialDesign:TextFieldAssist.HasClearButton="True"
+                      materialDesign:HintAssist.HintOpacity=".26"
+                      ItemsSource="{wpf:EnumDescriptions {x:Type themes1:ColorScheme}}"
+                      DisplayMemberPath="Value"
+                      SelectedValuePath="Key" />
 
-        />
-        <TextBox Text="Sample TextBox" Margin="5" 
-                 materialDesign:TextFieldAssist.HasClearButton="True"
-        />
-        <TextBox Text="Sample TextBox" Margin="5" Style="{StaticResource MaterialDesignFilledTextBox}" 
-        />
-        <TextBox Text="Sample TextBox" Margin="5" Style="{StaticResource MaterialDesignFilledTextBox}" 
-                 materialDesign:TextFieldAssist.HasClearButton="True"
+        </StackPanel>
+        <TextBlock Text="{Loc Hello_world}"
+                   VerticalAlignment="Bottom"
+                   TextAlignment="Center" />
 
-                 materialDesign:HintAssist.Hint="Description"/>
-        <ComboBox Style="{StaticResource MaterialDesignFilledComboBox}" Margin="5"
-                  IsEditable="True"
-                  materialDesign:TextFieldAssist.HasClearButton="True"
-                  materialDesign:HintAssist.HintOpacity=".26"
-
-                  ItemsSource="{wpf:EnumDescriptions {x:Type themes1:ColorScheme}}"
-                  DisplayMemberPath="Value" 
-                  SelectedValuePath="Key" 
-                  />
-        
-        <TextBlock Text="{Loc Hello_world}" VerticalAlignment="Center" TextAlignment="Center"/>
-    </StackPanel>
+    </DockPanel>
 </Window>

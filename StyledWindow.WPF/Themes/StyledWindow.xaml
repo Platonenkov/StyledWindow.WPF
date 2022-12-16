@@ -162,6 +162,7 @@
         </ControlTemplate.Resources>-->
 
         <Grid>
+            <Border Background="{DynamicResource MaterialDesignPaper}"></Border>
             <Border Name="PART_Border" BorderBrush="{DynamicResource MaterialDesignBody}"
                     BorderThickness="0.7">
                 <Border.Effect>
@@ -169,8 +170,7 @@
                 </Border.Effect>
             </Border>
 
-            <Grid x:Name="PART_MainGrid" 
-                  Background="{DynamicResource MaterialDesignPaper}">
+            <Grid x:Name="PART_MainGrid" >
                 <b:Interaction.Behaviors>
                     <behaviors:WindowMaximizationLimitattor/>
                 </b:Interaction.Behaviors>
@@ -180,7 +180,7 @@
                         <b:Interaction.Behaviors>
                             <behaviors:WindowTitleBarBehavior/>
                         </b:Interaction.Behaviors>
-                        <DockPanel Height="34" Background="{DynamicResource MaterialDesignPaper}">
+                        <DockPanel Height="34" >
                             <DockPanel.Resources>
                                 <Style TargetType="{x:Type Button}" BasedOn="{StaticResource .StyledWindowTitleBarButtonStyle}"/>
                                 <Style TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource .StyledWindowTitleBarButtonStyle}"/>
@@ -195,7 +195,7 @@
                                     <Setter Property="Margin" Value="10"/>
                                 </Style>
                             </DockPanel.Resources>
-                            <Image Name="PART_Icon" Margin="8,5,4,5" Source="{TemplateBinding Icon}" DockPanel.Dock="Left">
+                            <Image Name="PART_Icon" Margin="2,2,4,5" Source="{TemplateBinding Icon}" DockPanel.Dock="Left">
                                 <b:Interaction.Behaviors>
                                     <behaviors:WindowSystemIconBehavior/>
                                 </b:Interaction.Behaviors>
@@ -469,8 +469,8 @@
 
         <ControlTemplate.Triggers>
             <Trigger Property="WindowState" Value="Normal">
-                <Setter TargetName="PART_MainGrid" Property="Margin" Value="1"/>
-                <Setter TargetName="PART_Border" Property="BorderThickness" Value=".3"/>
+                <Setter TargetName="PART_MainGrid" Property="Margin" Value="0"/>
+                <Setter TargetName="PART_Border" Property="BorderThickness" Value="0.2"/>
                 <Setter TargetName="PART_Border" Property="Effect">
                     <Setter.Value>
                         <BlurEffect Radius="2"/>
@@ -493,7 +493,7 @@
             <Trigger Property="IsActive" Value="False">
                 <Setter TargetName="PART_TitleBar" Property="Opacity" Value="0.5"/>
                 <Setter TargetName="PART_Border" Property="BorderBrush" Value="{StaticResource RedTomatoBorderBrush}"/>
-                <Setter TargetName="PART_Border" Property="BorderThickness" Value=".3"/>
+                <Setter TargetName="PART_Border" Property="BorderThickness" Value=".2"/>
                 <Setter TargetName="PART_Border" Property="Effect">
                     <Setter.Value>
                         <BlurEffect Radius="2"/>
