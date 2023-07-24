@@ -1,13 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net6.0-windows;net5.0-windows;netcoreapp3.1-windows;net461;net47;net48</TargetFrameworks>
+    <TargetFrameworks>net7.0-windows;net6.0-windows;net462</TargetFrameworks>
     <UseWPF>true</UseWPF>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup>
-    <Version>6.0.0.2</Version>
-    <PackageReleaseNotes>fix border</PackageReleaseNotes>
+    <Version>7.0.0.0</Version>
+    <PackageReleaseNotes>net 7 support</PackageReleaseNotes>
     <SourceRevisionId>
       ^build_date$([System.DateTime]::UtcNow.ToString("yyyy-MM-ddTHH:mm:ss:fffZ"))
     </SourceRevisionId>
@@ -64,9 +64,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="MaterialDesignThemes" Version="4.5.0" />
-    <PackageReference Include="MathCore.WPF" Version="0.0.33.1" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
+    <PackageReference Include="MathCore.WPF" Version="0.0.44.5" />
     <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
-    <PackageReference Include="System.Text.Json" Version="6.0.4" />
+    <PackageReference Include="System.Text.Json" Version="7.0.3" />
   </ItemGroup>
 </Project>

@@ -12,6 +12,6 @@ namespace TestApp.WPF
             InitializeComponent();
         }
 
-        private void ButtonBase_OnClick(object Sender, RoutedEventArgs E) { new MainWindow().Show(); }
+        private void ButtonBase_OnClick(object Sender, RoutedEventArgs E) { new MainWindow() { Owner = this}.Show(); }
     }
 }

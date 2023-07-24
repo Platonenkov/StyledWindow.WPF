@@ -11,7 +11,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
         Style="{StaticResource StyledWindow}"
-        Icon="Resources/icon.png" WindowStartupLocation="CenterScreen">
+        Icon="Resources/icon.png" WindowStartupLocation="CenterOwner">
     <!--restart project after changing attached parameters-->
 
     <themes:StyledWindow.LanguageContent>

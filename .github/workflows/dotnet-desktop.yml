@@ -33,5 +33,5 @@ jobs:
       
     - name: Publish NuGet
       run: |
-        dotnet nuget push "**/*.nupkg" --skip-duplicate -s https://api.nuget.org/v3/index.json -k ${{ secrets.NuGetApiKey }} 
-        dotnet nuget push "**/*.snupkg" --skip-duplicate -s https://api.nuget.org/v3/index.json -k ${{ secrets.NuGetApiKey }}
+        dotnet nuget push "**/*.nupkg" --skip-duplicate -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGETAPIKEY }} 
+        dotnet nuget push "**/*.snupkg" --skip-duplicate -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGETAPIKEY }}
