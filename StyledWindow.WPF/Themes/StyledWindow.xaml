@@ -8,7 +8,8 @@
                      xmlns:components="clr-namespace:StyledWindow.WPF.Components"
                      xmlns:themes1="clr-namespace:StyledWindow.WPF.Components.Themes"
                      xmlns:c="clr-namespace:StyledWindow.WPF.Converters"
-                     xmlns:themes="clr-namespace:StyledWindow.WPF.Themes">
+                     xmlns:themes="clr-namespace:StyledWindow.WPF.Themes"
+                     >
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/materialdesigntheme.popupbox.xaml" />
